@@ -1,3 +1,10 @@
+import hi from './mode';
+import './css/styles.scss';
+
+{
+  console.log(hi);
+}
+
 {
   // const bank = {
   // 	userName: 'Alex',
