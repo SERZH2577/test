@@ -1,10 +1,3 @@
-import hi from './mode';
-import './css/styles.scss';
-
-{
-  console.log(hi);
-}
-
 {
   // const bank = {
   // 	userName: 'Alex',
@@ -480,5 +473,44 @@ import './css/styles.scss';
 }
 
 {
-  console.log([]);
+  // --- Local Storage ---
+  // Создать элемент с данными в локальном хранилище
+  localStorage.setItem('key_name', 'key_value');
+
+  // Прочитать данные из локального хранилища
+  localStorage.getItem('key_name');
+
+  // Распарсить результат с данными из локального хранилища
+  // JSON.parse(localStorage.getItem('key_name'));
+
+  // Удалить конкретные данные из локального хранилища
+  localStorage.removeItem('key_name');
+
+  // Полностью очистить хранилище
+  localStorage.clear();
+
+  // --- Session Storage ---
+  // Создать элемент с данными в хранилище сессии
+  sessionStorage.setItem('key_name', 'key_value');
+
+  // Прочитать данные из хранилища сессии
+  sessionStorage.getItem('key_name');
+}
+
+{
+  const formRef = document.querySelector('.js-form');
+  const textareaRef = document.querySelector('.js-form textarea');
+
+  formRef.addEventListener('submit', onFormSubmit);
+  textareaRef.addEventListener('input', onTextareaInput);
+
+  function onFormSubmit(e) {
+    console.log(1);
+  }
+
+  function onTextareaInput(e) {
+    const value = e.currentTarget.value;
+    console.log(value);
+    localStorage.setItem('massage', value);
+  }
 }
