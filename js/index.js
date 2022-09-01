@@ -473,44 +473,166 @@
 }
 
 {
-  // --- Local Storage ---
-  // Создать элемент с данными в локальном хранилище
+  /*
+  --- Local Storage ---
+
+  Создать элемент с данными в локальном хранилище
   localStorage.setItem('key_name', 'key_value');
 
-  // Прочитать данные из локального хранилища
+  Прочитать данные из локального хранилища
   localStorage.getItem('key_name');
 
-  // Распарсить результат с данными из локального хранилища
-  // JSON.parse(localStorage.getItem('key_name'));
+  Распарсить результат с данными из локального хранилища
+  JSON.parse(localStorage.getItem('key_name'));
 
-  // Удалить конкретные данные из локального хранилища
+  Удалить конкретные данные из локального хранилища
   localStorage.removeItem('key_name');
 
-  // Полностью очистить хранилище
+  Полностью очистить хранилище
   localStorage.clear();
 
-  // --- Session Storage ---
-  // Создать элемент с данными в хранилище сессии
+  --- Session Storage ---
+
+  Создать элемент с данными в хранилище сессии
   sessionStorage.setItem('key_name', 'key_value');
 
-  // Прочитать данные из хранилища сессии
+  Прочитать данные из хранилища сессии
   sessionStorage.getItem('key_name');
+  */
 }
 
 {
-  const formRef = document.querySelector('.js-form');
-  const textareaRef = document.querySelector('.js-form textarea');
+  function XO(str) {
+    const strLowerCase = str.toLowerCase();
+    let x = 0;
+    let o = 0;
 
-  formRef.addEventListener('submit', onFormSubmit);
-  textareaRef.addEventListener('input', onTextareaInput);
+    for (let i = 0; i < strLowerCase.length; i += 1) {
+      if (strLowerCase[i] === 'x') {
+        x += 1;
+      } else if (strLowerCase[i] === 'o') {
+        o += 1;
+      }
+    }
 
-  function onFormSubmit(e) {
-    console.log(1);
+    return x === o;
   }
 
-  function onTextareaInput(e) {
-    const value = e.currentTarget.value;
-    console.log(value);
-    localStorage.setItem('massage', value);
+  // console.log(XO('xxooXok'));
+}
+
+{
+  function findShort(s) {
+    const sArr = s.split(' ');
+    let minNum = Infinity;
+    sArr.map(el => {
+      if (el.length < minNum) {
+        minNum = el.length;
+      }
+    });
+    return minNum;
   }
+
+  // console.log(findShort('bitcoin take over the world maybe who knows perhaps'));
+}
+
+{
+  function stray(numbers) {
+    let same;
+    for (let i = 0; i < numbers.length; i += 1) {
+      for (let j = i + 1; j < numbers.length; j += 1) {
+        if (numbers[i] === numbers[j]) {
+          same = numbers[i];
+        }
+      }
+      if (same !== numbers[i]) {
+        return numbers[i];
+      }
+    }
+  }
+
+  // console.log(stray([17, 17, 17, 3, 17, 17, 17, 17]));
+}
+
+{
+  function updateLight(current) {
+    if (current === 'green') {
+      return 'yellow';
+    } else if (current === 'yellow') {
+      return 'red';
+    }
+
+    return 'green';
+  }
+
+  // console.log(updateLight('yellow'));
+  // console.log(updateLight('green'));
+  // console.log(updateLight('red'));
+}
+{
+  function expressionMatter(a, b, c) {
+    const arr = [
+      a + b + c,
+      a * b * c,
+      (a + b) * c,
+      a * (b + c),
+      a + b * c,
+    ].sort((x, y) => y - x);
+
+    return arr[0];
+  }
+
+  // console.log(expressionMatter(3, 3, 3));
+  // console.log(expressionMatter(2, 1, 2));
+}
+
+{
+  function areYouPlayingBanjo(name) {
+    if (name[0].toLowerCase() === 'r') {
+      return `${name} plays banjo`;
+    }
+
+    return `${name} does not play banjo`;
+  }
+
+  // console.log(areYouPlayingBanjo('Adam'));
+}
+
+{
+  function getCount(str) {
+    const strArr = [];
+
+    for (let i = 0; i < str.length; i += 1) {
+      if (
+        str[i].toLowerCase() === 'a' ||
+        str[i].toLowerCase() === 'e' ||
+        str[i].toLowerCase() === 'i' ||
+        str[i].toLowerCase() === 'o' ||
+        str[i].toLowerCase() === 'u'
+      ) {
+        strArr.push(str[i]);
+      }
+    }
+
+    return strArr.length;
+  }
+
+  // console.log(getCount('abracadabra'));
+}
+
+{
+  function howMuchILoveYou(nbPetals) {
+    const massage = [
+      'I love you',
+      'a little',
+      'a lot',
+      'passionately',
+      'madly',
+      'not at all',
+    ];
+
+    return massage[(nbPetals - 1) % 6];
+  }
+
+  // console.log(howMuchILoveYou(1));
 }
